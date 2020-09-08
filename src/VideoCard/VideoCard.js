@@ -17,4 +17,4 @@ const VideoCard = (props) => {
 }
 
 export default VideoCard;
-// , props.active===props.id?classes.active: null
+

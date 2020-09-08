@@ -9,17 +9,17 @@ class videoplayer extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.id != nextState.idForVideo) {
+        if (nextProps.id !== nextState.idForVideo) {
             this.setState({ idForVideo: nextProps.id })
             return true
         }
-        else if (nextProps.id == nextState.idForVideo) {
+        else if (nextProps.id === nextState.idForVideo) {
             return true
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.id != prevState.idForVideo) {
+        if (prevProps.id !== prevState.idForVideo) {
             Axios.get(`https://5d76bf96515d1a0014085cf9.mockapi.io/video${this.state.idForVideo}`)
                 .then(response => {
                     this.setState({ data: response.data })
@@ -33,7 +33,7 @@ class videoplayer extends React.Component {
     render() {
         return (
             <div className={classes.leftPart}>
-                <iframe className={classes.video} src={`https://player.vimeo.com/video/${this.state.data.vimeoId}`} frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen></iframe>
+                <iframe title="frame" className={classes.video} src={`https://player.vimeo.com/video/${this.state.data.vimeoId}`} frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen></iframe>
                 <div className={classes.metaTagsWrapper}>
                     <p className={classes.likes}>{this.state.data.views} Views</p>
                     <div className={classes.shareDiv}>

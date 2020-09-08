@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './main.module.css'
 import VideoPlayer from '../videoPlayer/videoplayer'
 import Playlist from '../playlist/playlist'
-// import {Route} from 'react-router-dom'
+
 class mains extends React.Component {
 
     state = {
@@ -10,7 +10,7 @@ class mains extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.location.pathname != nextState.idForVideo) {
+        if (nextProps.location.pathname !== nextState.idForVideo) {
             this.setState({ idForVideo: nextProps.location.pathname })
             return true
         }
